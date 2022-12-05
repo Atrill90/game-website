@@ -13,23 +13,28 @@
   </mat-form-field>
 </div>
 <div class="games">
-  <div class="game">
-    <div class="game-thumb-container">
-      <img
-        src="https://img.freepik.com/free-vector/joystick-game-sport-technology_138676-2045.jpg?w=2000"
-        alt="thumbnail"
-        class="game-thumbnail"
-      />
-    </div>
-    <div class="game-description">
-      <p class="game-name">Name</p>
-      <div class="game-platforms">
+  <ng-container *ngFor="let game of games">
+    <div class="game">
+      <div class="game-thumb-container">
         <img
-          class="game-platform"
-          src="https://i.ytimg.com/vi/wKoHS2aKSUI/maxresdefault.jpg"
-          alt="slug"
+          *ngIf="game.background_image"
+          src="{{ game.background_image }}"
+          alt="thumbnail"
+          class="game-thumbnail"
         />
+        <p *ngIf="!game.background_image">No image</p>
+      </div>
+      <div class="game-description">
+        <p class="game-name">{{ game.name }}</p>
+        <div class="game-platforms">
+          <img
+            *ngFor="let gamePlatform of game.parent_platforms"
+            class="game-platform"
+            src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+            alt="{{ gamePlatform.platform.slug }}"
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>

@@ -76,13 +76,22 @@
     }
 
     &-name {
-        columns: #fff;
+        color: #fff;
         font-weight: 700;
         font-size: 22px;
         margin-bottom: 20px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+    }
+
+    &-platforms {
+        display: flex;
+    }
+    
+    &-platform {
+      width: 20px;
+      margin-right: 10px;
     }
     
 }
